@@ -50,6 +50,8 @@ static GetCustomer cb = new GetCustomer();
 		
 		String createdate = res.then().extract().path("contact.created_at");
 		System.out.println(createdate);
+
+		System.out.println(createdate);
 		VendorCreationdate = createdate;
 		
 		String vendname = res.then().extract().path("contact.name");
