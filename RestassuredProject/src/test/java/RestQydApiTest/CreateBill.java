@@ -67,7 +67,7 @@ public class CreateBill extends CreateVendor {
 
 loc
 	*/
-	/*	LocalDate myObj = LocalDate.now(); 
+	/*tttt	LocalDate myObj = LocalDate.now(); 
 		
 		JSONObject CRBillReq = new JSONObject();
 		JSONObject bill = new JSONObject();
