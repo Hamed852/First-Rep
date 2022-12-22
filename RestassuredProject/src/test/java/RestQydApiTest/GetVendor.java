@@ -37,8 +37,6 @@ static	CreateVendor cv = new CreateVendor();
 					res.then().body("contact.email", equalTo(cv.VendorEmail));
 					res.then().body("contact.phone_number", equalTo(cv.VendorPhoNo));
 					 
-/*					res.then().body("contact.phone_number", equalTo(cv.VendorPhoNo));
-*/
 					System.out.println("my Get method is OK ");
 
 			}
