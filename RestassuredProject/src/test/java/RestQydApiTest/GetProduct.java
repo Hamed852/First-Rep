@@ -2,6 +2,8 @@ package RestQydApiTest;
 import static io.restassured.RestAssured.basePath;
 import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.given;
+
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -43,6 +45,8 @@ public class GetProduct extends CreateProduct {
 
 		System.out.println("my Get method is OK ");
 
+		
 }
 }
+
 

@@ -3,6 +3,8 @@ package RestQydApiTest;
 import static io.restassured.RestAssured.basePath;
 import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.given;
+import static org.testng.Assert.assertEquals;
+
 import org.json.simple.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -71,10 +73,11 @@ static GetCustomer cb = new GetCustomer();
 		VendorPhoNo = vendorPhone;
 		
 		
-		
-		
+
+			
 		int statuscode = res.statusCode();
 		Assert.assertEquals(201, statuscode);
+		
 		
 		System.out.println("my vendor id is "+ Venndorid);
 	

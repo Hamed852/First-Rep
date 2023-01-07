@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="RestQydApiTest.UpdateVendor">
+      <class name="RestQydApiTest.CreatePurchaseOrder">
         <methods>
-          <include name="updateVendorDetails"/>
+          <include name="CreatePurchaseOrderTest"/>
         </methods>
-      </class> <!-- RestQydApiTest.UpdateVendor -->
+      </class> <!-- RestQydApiTest.CreatePurchaseOrder -->
       <class name="RestQydApiTest.GetCustomer">
         <methods>
           <include name="getcustomertest"/>

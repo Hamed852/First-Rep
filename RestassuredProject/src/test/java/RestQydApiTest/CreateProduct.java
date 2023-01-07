@@ -13,6 +13,7 @@ import org.json.simple.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.github.javafaker.Code;
 import com.github.javafaker.Faker;
 import com.google.gson.JsonObject;
 
@@ -23,11 +24,12 @@ public class CreateProduct {
 
 	static Faker fk = new Faker();
 
+
 	
 	static String Product_sku;
-	static String Pr_name_ar = " 1 الكارت ";
-	static String Pr_barcode = "3312516";
-	static String Pr_name_en = "Eti Card 10";
+	static String Pr_name_ar = fk.food().fruit();
+	static Code Pr_barcode = fk.code() ;
+	static String Pr_name_en = fk.food().fruit();
 	static String Pr_des = "Created by Rest assured Req";
 	static int Pr_unit_type_id = 1;
 	static int Pr_category_id = 1;
@@ -41,7 +43,8 @@ public class CreateProduct {
 	static int tax_id = 1;
 	static String Creationdate = "";
 	static int ProductID;
-
+static String Productname;
+static String Producdesc;	
 	@Test
 	public static void createproducttest() {
 

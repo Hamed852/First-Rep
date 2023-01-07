@@ -67,6 +67,7 @@ public static void addcust() {
 		Status = Statusinput;
 
 		requ.put("contact", contact);
+		
 		baseURI = "https://qaland.qoyod.com/api/2.0/";
 		basePath = "customers";
 

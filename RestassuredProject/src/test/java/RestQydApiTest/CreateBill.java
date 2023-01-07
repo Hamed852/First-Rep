@@ -18,7 +18,9 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
 public class CreateBill extends CreateVendor {
-/*
+
+	
+	
 	static Faker fk = new Faker();
 
 	static int vendID = VendorID;
@@ -27,90 +29,63 @@ public class CreateBill extends CreateVendor {
 	static String bill_issueDate ;
 	static String bill_DueDate ;
 	static String Pr_des = "Created by Rest assured Req";
-	static int Pr_unit_type_id = 1;
-	static int Pr_category_id = 1;
-	static String Pr_track_quantity = "10";
-	static boolean is_purchase_item = true;
-	static int Pr_buying_price = 10;
-	static boolean is_sale_item = true;
-	static int Pr_selling_price = 30;
-	static int exp_acc_id = 1;
-	static int sales_account_id = 17;
-	static int tax_id = 1;
 	static String Creationdate = "";
-	static int ProductID;
+	static int Bill_ID;
 
 	@SuppressWarnings("unchecked")
-	@Test(dependsOnMethods = "CreateVendorTest") /* Also must Depend on create location test */
+	@Test
+	
 	public static void CreateBillTest() {
-/*
 
-        "issue_date": "{{iss_date}}",
-        "due_date": "{{Due_date}}",
-        "reference": "{{Reference}}",
-        "inventory_id": "{{inven_id}}",
-        "line_items": [
-            {
-                "product_id": "{{pr_id}}",
-                "description": "{{desc}}",
-                "quantity": "{{quan}}",
-                "unit_price": "{{unit_pric}}",
-                "discount": "{{disc}}",
-                "tax_percent": "{{tax_perc}}"
-            }
-        ],
-        "custom_fields": {
-            "customfield1": "{{custom_field1}}",
-            "customfield2": "{{custom_field2}}"
-        }
-    }
-
-loc
-	*/
-	/*tttt	LocalDate myObj = LocalDate.now(); 
-		
-		JSONObject CRBillReq = new JSONObject();
+	JSONObject CRBillReq = new JSONObject();
 		JSONObject bill = new JSONObject();
-		bill.put("contact_id", vendID);
+
+		bill.put("contact_id", "151");
 		String Billstatus= "Draft";
 		bill.put("status", Billstatus);
-		String issuedate = fk.date().toString();
+		bill.put("issue_date", "2022-12-28");
+		bill.put("due_date", "2023-03-28");
+		String BillReff = "Bill-"  + fk.number().randomNumber();
+		bill.put("reference", BillReff);
+		bill.put("inventory_id","7" );
 		
-		product.put("name_ar", issuedate);
-		product.put("name_en", Pr_name_en);
-		product.put("description", Pr_des);
-		product.put("product_unit_type_id", Pr_unit_type_id);
-		product.put("category_id", Pr_category_id);
-		product.put("track_quantity", Pr_track_quantity);
-		product.put("purchase_item", is_purchase_item);
-		product.put("buying_price", Pr_buying_price);
-		product.put("expense_account_id", exp_acc_id);
-		product.put("sale_item", is_sale_item);
-		product.put("selling_price", Pr_selling_price);
-		product.put("sales_account_id", sales_account_id);
-		product.put("tax_id", tax_id);
-
-		CRReq.put("product", product);
+		JSONObject line_items = new JSONObject();
+		line_items.put("product_id","1" );
+		line_items.put("description","First Rest Bill " );
+		line_items.put("quantity","3" );
+		line_items.put("unit_price","10" );
+		line_items.put("discount", "20");
+		line_items.put("tax_percent","10" );
+		bill.put("line_items", line_items);
+		
+		JSONObject custom_fields = new JSONObject();
+		custom_fields.put("customfield1", "mody");
+		custom_fields.put("customfield2", "mody");
+		bill.put("custom_fields", custom_fields);
+		
+		CRBillReq.put("bill", bill);
 
 		baseURI = "https://qaland.qoyod.com/api/2.0/";
 		basePath = "bills";
 
 		Response res = given().header("API-KEY", "6d88aec7992f29fc715df835c").header("Content Type", "application/json")
-				.contentType(ContentType.JSON).accept(ContentType.JSON).body(CRReq.toJSONString()).log().all().when()
+				.contentType(ContentType.JSON).accept(ContentType.JSON).body(CRBillReq.toJSONString()).log().all().when()
 				.post();
 		
-		int prodid = res.then().extract().path("product.id");
-		System.out.println(prodid);
-		ProductID = prodid;
+		System.out.println(res.then().extract().path("bill.created_at"));
 		
-		String createdate = res.then().extract().path("product.created_at");
-		System.out.println(createdate);
-		Creationdate = createdate;
+		
+
+		
+		int bill_id =	res.then().extract().path("bill.id");
+		
+		System.out.println(bill_id);
+		Bill_ID = bill_id;
+	
 		
 		int statuscode = res.statusCode();
 		Assert.assertEquals(201, statuscode);
 		
-		System.out.println(Product_sku);
-*/	}
+	}
 
 }
