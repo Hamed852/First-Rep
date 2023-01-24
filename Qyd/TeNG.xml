@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Default suite" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Default test" verbose="2">
+    <classes>
+   
+   
+     <class name="FirstQydMavenPr.Qyd.loginTest">
+   <parameter name="Username" value="m.hamed@qoyod.com"></parameter>   
+    <parameter name="Password" value="AAaa@123456789"></parameter>   
+        <methods>
+          <include name="UserLogin"/>
+        </methods>
+      </class>
+    
+      <class name="FirstQydMavenPr.Qyd.vendorTest">
+        <methods>
+          <include name="VendorCreation"/>
+        </methods>
+      </class> <!-- FirstQydMavenPr.Qyd.vendorTest -->
+    </classes>
+  </test> <!-- Default test -->
+</suite> <!-- Default suite -->
